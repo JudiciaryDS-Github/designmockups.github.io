@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Responsive Table with Freeze Panes Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="narrow-jumbotron.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet">
+<link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+    <!-- Custom style for Freeze Table -->
+    <style>
+        table {
+        font-size: 16px;
+		font-family: "Roboto";
+		font-weight: 400;
+    }
+	.table-sm td, .table-sm th {
+    padding: 1rem;
+}
+.table-sm td p, .table-sm th p {
+    margin-bottom: 0;
+}
+.table-sm th  {
+text-transform: uppercase;
+}
+    /* table th,
+    .table-fill tr {
+      background-color: rgb(255,255,255,1) !important;
+    } */
+.scroll-left, .scroll-right {
+   position: absolute;
+    left: 0px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    background: #f7f1f1;
+    width: 40px;
+    justify-content: center;
+    font-size: 2rem;
+    color: #751c24;
+    border: 1px solid #d9d9d9;
+}
+   .scroll-left:hover, .scroll-right:hover {
+    cursor: pointer;
+    background: #e7d8d8;
+}
+
+.scroll-right {
+    left: auto;
+    right: 0;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fff;
+}
+.table-sm td:first-child, .table-sm th:first-child {
+    background: #751c24;
+    color: white;
+    border: 1px solid rgb(222 226 230 / 40%);
+}
+.table-bordered thead th {
+    background: #333;
+    color: #fff;
+}
+
+.scrollable {
+    padding-left: 40px;
+    padding-right: 40px;
+	position: relative;
+}
+span.scroll-left i, span.scroll-right i {
+    margin-top: 16px;
+}
+.table-bordered thead td, .table-bordered thead th {
+    border-bottom-width: 1px;
+}
+.table thead th {
+    border-bottom: 1px solid rgb(222 226 230 / 20%);
+    vertical-align: middle;
+}
+ .table-bordered th {
+    border: 1px solid rgb(222 226 230 / 50%);
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+<div class="scrollable">
+<span class="scroll-left"><i class="fal fa-chevron-left"></i></span>
+		  <span class="scroll-right"><i class="fal fa-chevron-right"></i></span>
+  <div class="table-shadow">
+  	 
+    <table cellspacing="0" id="table-basic" class="table table-sm table-bordered table-striped" style="min-width: 1200px;">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th><p>Mediation</p></th>
+            <th><p>Conciliation</p></th>
+            <th><p>Neutral evaluation</p></th>
+            <th><p>Arbitration</p></th>
+            <th><p>Expert determination</p></th>
+          </tr>
+		  </thead>
+		  <tbody id="scroll-this">
+          <tr>
+            <td>
+              <p><b>Role of the third party</b></p>
+            </td>
+            <td>
+              <p>Guides parties to find a solution that meets their concerns</p>
+            </td>
+            <td><p>Guides parties and proposes solutions</p></td>
+            <td><p>Assesses the likelihood of success at trial</p></td>
+            <td>
+              <p>Decides on an outcome after each party presents their case</p>
+            </td>
+            <td>
+              <p>
+                Has expert knowledge and gives an opinion that could be a basis
+                for agreement
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>Cost</b></p>
+            </td>
+            <td>
+              <p>Low cost</p>
+              <p>
+                (Example: mediation is free for most cases in the State Courts
+                <b>except</b> for mediation of a District Court case, which
+                generally costs $250)
+              </p>
+            </td>
+            <td>
+              <p>Low cost</p>
+              <p>
+                (Example: conciliation is free for most cases in the State
+                Courts <b>except</b> for conciliation of a District Court case,
+                which generally costs $250)
+              </p>
+            </td>
+            <td>
+              <p>Lower than a trial, but higher than mediation</p>
+              <p>
+                (Example: neutral evaluation is free for most cases in the State
+                Courts <b>except</b> for neutral evaluation of a District Court
+                case, which generally costs $250. There may be other legal fees
+                from your lawyer.)
+              </p>
+            </td>
+            <td>
+              <p>
+                Higher than mediation. Can sometimes be lower than a trial. The
+                arbitrator's fees must be paid by the parties.
+              </p>
+            </td>
+            <td>
+              <p>
+                Generally lower than a trial, but higher than mediation. The
+                expert's fees must be paid by the parties.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>Speed</b></p>
+            </td>
+            <td><p>Fast</p></td>
+            <td><p>Fast</p></td>
+            <td><p>Faster than a trial, but slower than mediation</p></td>
+            <td>
+              <p>
+                Can be faster than a trial, but generally slower than mediation
+              </p>
+            </td>
+            <td><p>Faster than a trial, but slower than mediation</p></td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>Allows control over the outcome</b></p>
+            </td>
+            <td><p>Yes</p></td>
+            <td><p>Yes</p></td>
+            <td><p>Yes</p></td>
+            <td><p>No</p></td>
+            <td>
+              <p>
+                Yes. The expert's opinion does not determine the parties’
+                dispute unless the parties agree to it.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>You will know the merits of your case</b></p>
+            </td>
+            <td><p>No</p></td>
+            <td><p>No</p></td>
+            <td><p>Yes</p></td>
+            <td><p>Yes</p></td>
+            <td><p>Yes</p></td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>Requires a lawyer</b></p>
+            </td>
+            <td><p>No</p></td>
+            <td><p>No</p></td>
+            <td><p>Yes</p></td>
+            <td><p>No</p></td>
+            <td><p>No</p></td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>Involves a technical expert's opinion</b></p>
+            </td>
+            <td><p>No</p></td>
+            <td><p>No</p></td>
+            <td><p>No</p></td>
+            <td><p>No</p></td>
+            <td><p>Yes</p></td>
+          </tr>
+          <tr>
+            <td>
+              <p><b>Offered by the court</b></p>
+            </td>
+            <td><p>Yes (State Courts)</p></td>
+            <td><p>Yes (State Courts)</p></td>
+            <td><p>Yes (State Courts)</p></td>
+            <td><p>No</p></td>
+            <td><p>No</p></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+</div>
+
+  
+
+
+</div> <!-- /container -->
+  
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="dist/js/freeze-table.js"></script>
+<script>
+$(document).ready(function() {
+
+  $(".table-basic").freezeTable();
+
+  $(".table-scrollable").freezeTable({
+    'scrollable': true,
+  });
+
+  $('#table-modal').one('shown.bs.modal', function (e) {
+
+    $(this).find(".table-modal").freezeTable({
+      'container': '#table-modal.modal',
+    });
+  });
+
+  $(".table-columns-only").freezeTable({
+    'freezeHead': false,
+  });
+
+  $(".table-head-only").freezeTable({
+    'freezeColumn': false,
+  });
+
+  // 2 Columns to be fixed
+  $(".table-multi-columns").freezeTable({
+    'columnNum' : 2,
+  });
+
+  // Shadow enabled
+  $(".table-shadow").freezeTable({
+    'shadow' : true,
+  });
+
+  // Customized styles
+  $(".table-wrap-styles").freezeTable({
+    'headWrapStyles': {'box-shadow': '0px 9px 10px -5px rgba(159, 159, 160, 0.8)'},
+  });
+
+  $(".table-with-scrollbar").freezeTable({
+    'scrollBar': true,
+  });
+
+  // Freeze Column(s) Keep
+  $(".table-column-keep").freezeTable({
+    'columnNum' : 2,
+    'columnKeep' : true,
+  });
+});
+</script>
+<script>
+$(document).ready(function() {
+$(".scroll-right").click(function() {
+
+  event.preventDefault();
+  $(".table-shadow").animate(
+    {
+      scrollLeft: "+=200px"
+    },
+    "slow"
+  );
+});
+
+$(".scroll-left").click(function() {
+  event.preventDefault();
+  $(".table-shadow").animate(
+    {
+      scrollLeft: "-=200px"
+    },
+    "slow"
+  );
+});
+});
+</script>
+</body>
+</html>
